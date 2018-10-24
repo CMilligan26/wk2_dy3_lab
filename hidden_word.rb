@@ -36,10 +36,12 @@ class HiddenWord
     word.chars
   end
 
-  def create_display_word(word, letter)
+  def create_display_word(word)
     word_array = word_to_array(word)
     for char in word_array
-      char.replace("*") if char != letter
+      if @guessed_letters.include?(char) == false
+        char.replace("*")
+      end
     end
     return word_array.join
   end
@@ -57,7 +59,12 @@ class HiddenWord
     end
   end
 
-  def create_display_word_against_guessed_letters
-    display_word = @word.create_display_word(@hidden_word.display_word, letter)
-  end
+  # def create_display_word_against_guessed_letters
+  #   display_word = @word
+  #   for letter in @guessed_letters
+  #   display_word = create_display_word(display_word)
+  #   end
+  #   return display_word
+  # end
+
 end

@@ -22,7 +22,12 @@ class Game
   end
 
   def game_won
-    @hidden_word.display_display_word.include?("*")
+    if @hidden_word.create_display_word(@hidden_word.display_word).include?("*") == true
+      game_won = false
+    else
+      game_won = true
+    end
+    return game_won
   end
 
   def game_not_lost
@@ -34,10 +39,10 @@ class Game
   end
 
   def show_hidden_word
-    @hidden_word.create_display_word(@hidden_word.display_word,"")
+    @hidden_word.create_display_word(@hidden_word.display_word)
   end
 
-  def show_hidden_word_after_guess(letter)
-    @hidden_word.create_display_word(@hidden_word.display_word, letter)
-  end
+  # def show_hidden_word_after_guess(letter)
+  #   @hidden_word.create_display_word(@hidden_word.display_word)
+  # end
 end

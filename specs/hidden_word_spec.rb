@@ -60,15 +60,23 @@ class HiddenWordTest < MiniTest::Test
   end
 
   def test_create_display_word
+    @hidden_word.add_to_guessed_letters("o")
     expected = "*o**"
-    actual = @hidden_word.create_display_word("word", "o")
+    actual = @hidden_word.create_display_word("word")
     assert_equal(expected, actual)
   end
 
-  def test_dislay_word_if_letter_guessed_is_correct
+  def test_display_word_if_letter_guessed_is_correct
     expected = true
     actual = @hidden_word.display_word_if_letter_guessed_is_correct("w")
     assert_equal(expected, actual)
   end
 
+  # def test_create_display_word_against_guessed_letters
+  #   @hidden_word.add_to_guessed_letters("o")
+  #   @hidden_word.add_to_guessed_letters("r")
+  #   expected = "w**d"
+  #   actual = @hidden_word.create_display_word_against_guessed_letters
+  #   assert_equal(expected, actual)
+  # end
 end
