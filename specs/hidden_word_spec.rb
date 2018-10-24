@@ -66,10 +66,9 @@ class HiddenWordTest < MiniTest::Test
   end
 
   def test_dislay_word_if_letter_guessed_is_correct
-    expected = "w***"
+    expected = true
     actual = @hidden_word.display_word_if_letter_guessed_is_correct("w")
     assert_equal(expected, actual)
   end
-
 
 end

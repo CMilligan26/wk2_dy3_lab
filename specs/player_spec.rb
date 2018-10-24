@@ -20,4 +20,16 @@ class PlayerTest < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_remove_life
+    expected = 5
+    actual = @player.remove_life
+    assert_equal(expected, actual)
+  end
+
+  def test_player_alive
+    expected = true
+    actual = @player.player_alive
+    assert_equal(expected, actual)
+  end
+
 end

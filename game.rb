@@ -13,4 +13,31 @@ class Game
     @hidden_word
   end
 
+  def make_guess(letter)
+    @hidden_word.display_word_if_letter_guessed_is_correct(letter)
+  end
+
+  def player_remove_life
+    @player.remove_life
+  end
+
+  def game_won
+    @hidden_word.display_display_word.include?("*")
+  end
+
+  def game_not_lost
+    @player.player_alive
+  end
+
+  def display_player_lives
+    @player.display_lives
+  end
+
+  def show_hidden_word
+    @hidden_word.create_display_word(@hidden_word.display_word,"")
+  end
+
+  def show_hidden_word_after_guess(letter)
+    @hidden_word.create_display_word(@hidden_word.display_word, letter)
+  end
 end

@@ -13,4 +13,12 @@ class Player
     @lives
   end
 
+  def remove_life
+    @lives -= 1
+  end
+
+  def player_alive
+    @lives > 0
+  end
+
 end
